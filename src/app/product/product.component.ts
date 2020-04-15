@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product, ProductService } from '../shared/services/product.service';
 import { ActivatedRoute } from '@angular/router';
-import { map, filter, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'nga-product',

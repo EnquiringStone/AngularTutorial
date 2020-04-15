@@ -1,1 +1,3 @@
-export { ProductService } from './product.service';
+import { ProductService } from './product.service';
+
+export { Product, ProductSearchParams, ProductService } from './product.service';

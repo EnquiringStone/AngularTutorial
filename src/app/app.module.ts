@@ -1,36 +1,43 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientModule } from '@angular/common/http';
-import { ProductService } from './shared/services';
-import { RouterModule } from '@angular/router';
+
+import { SearchFormModule } from './shared/components/search-form';
+import { AppComponent } from './app.component';
 import { routes } from './app.routing';
-import { ProductResolverService } from './shared/services/product-resolver.service';
+import { ProductService } from './shared/services';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FlexLayoutModule,
+    RouterModule.forRoot(routes),
+
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+
+    SearchFormModule
+  ],
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatSnackBarModule,
-    FlexLayoutModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+  bootstrap: [
+    AppComponent
   ],
-  providers: [ProductService, ProductResolverService],
-  bootstrap: [AppComponent]
+  providers: [
+    ProductService
+  ]
 })
-export class AppModule { }
+export class AppModule {}
